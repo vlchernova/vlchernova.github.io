@@ -1,0 +1,423 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    user-select: none;
+}
+
+@font-face {
+    font-family: 'Misto';
+    src: url('fonts/Misto.eot');
+    src: url('fonts/Misto.eot') format('embedded-opentype'),
+        url('fonts/Misto.woff2') format('woff2'),
+        url('fonts/Misto.woff') format('woff'),
+        url('fonts/Misto.ttf') format('truetype'),
+        url('fonts/Misto.svg#Misto') format('svg');
+}
+
+.page {
+    position: relative;
+    /* rb */
+    height: 100vh;
+    overflow-x: hidden;
+
+
+}
+
+/* fixed */
+.aside {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+
+    font-size: 1rem;
+    letter-spacing: 0.20rem;
+    font-family: 'Misto';
+    color: white;
+    top: 50vh;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: filter 2s ease;
+
+
+}
+
+.aside p {
+    margin: 0;
+    transform: rotate(90deg);
+    margin-left: -1rem;
+
+}
+
+.aside.invert {
+    filter: invert(1);
+}
+
+
+/* /fixed */
+
+
+/*content*/
+.scroll-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+
+}
+
+.scroll-container > section {
+    width: 100%;
+    min-height: 100vh;
+
+}
+
+/*
+#storybook_one:after {
+    display: block;
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: black;
+ 
+    z-index: -1;
+}
+*/
+
+#section_one {
+    display: grid;
+    overflow: hidden;
+
+    height: 100vh;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+
+
+    padding-right: calc(66vw / 12 * 2);
+    padding-left: calc(66vw / 12 * 2);
+
+    background-color: black;
+    grid-row-gap: 10px;
+
+}
+
+#section_two {
+    display: grid;
+    overflow: hidden;
+
+    height: 135vh;
+    grid-template-columns: 1.3fr 1.3fr;
+
+    grid-column-gap: 10px;
+
+    padding-top: 10px;
+
+    padding-right: calc(66vw / 12 * 2);
+    padding-left: calc(66vw / 12 * 2);
+    background-color: white;
+}
+
+.naming {
+
+    grid-column: 1;
+    grid-row: 2;
+    font-family: 'Misto', sans-serif;
+    font-size: 3.8em;
+    letter-spacing: 0.05em;
+    color: white;
+    border-bottom: 0.5px solid white;
+    align-self: start;
+}
+
+
+.naming p {
+    margin: 0;
+}
+
+.description {
+
+    grid-column: 1;
+    grid-row: 4;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    border-top: 0.5px solid white;
+    letter-spacing: 0.1em;
+    line-height: 1.4em;
+    justify-self: end;
+     
+}
+.description p{
+    margin-top: 1em;
+}
+/*section1*/
+.photo1 {
+    grid-row: 5;
+    grid-column: 1;
+    margin-bottom: -10px;
+
+}
+
+.photo5 {
+    grid-row: 4/6;
+    grid-column: 2;
+
+}
+
+/*/section1*/
+
+
+
+/*section2*/
+
+
+.col1 {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+
+}
+
+.col2 {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+
+}
+
+.photo2 {
+    margin-bottom: 5px;
+}
+
+.photo3 {
+    margin-bottom: 5px;
+}
+
+.photo4 {
+    margin-bottom: 5px;
+}
+
+
+.back_to {
+    grid-column: 2;
+    margin-top: 2rem;
+    margin-left: 38rem;
+
+
+}
+
+/*/section2*/
+
+.photo1 img {
+
+    width: 100%;
+    height: auto;
+}
+
+.photo2 img {
+    width: 100%;
+    height: auto;
+}
+
+.photo3 img {
+    width: 100%;
+    height: auto;
+}
+
+.photo4 img {
+    width: 100%;
+    height: auto;
+}
+
+.photo5 img {
+    width: 100%;
+    height: auto;
+}
+
+.photo6 img {
+    width: 100%;
+    height: auto;
+}
+
+.photo7 img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+/*preload*/
+
+#preload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+    background-color: white;
+    z-index: 2020;
+    animation-name: preloader-frame-fade;
+    animation-duration: 5s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+/*
+html.is-loading #preload {
+    z-index: 10000;
+    background-color: black;
+}
+*/
+/*
+html:not(.is-loading) #preload {
+    animation-name: preloader-frame-fade;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+}
+*/
+
+@keyframes preloader-frame-fade {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.preload-crop {
+    overflow: hidden;
+    max-height: 100px;
+}
+
+.preload-item {
+    color: #dfdfdf;
+    animation-name: preloader-fade;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes preloader-fade {
+    0% {
+        margin-top: 200px;
+    }
+
+    40% {
+        margin-top: 0px;
+    }
+
+    60% {
+        margin-top: 0px;
+    }
+
+    100% {
+        margin-top: -200px;
+    }
+}
+
+/*preload*/
+
+
+
+@media only screen and (max-width:480px) {
+    .preload-item img {
+        width: 300px;
+        height: auto;
+    }
+
+    #section_one {
+        grid-template-columns: 1fr;
+        padding-right: calc(220vw / 12 * 2);
+        padding-left: calc(120vw / 12 * 2);
+    }
+
+
+    #section_two {
+      
+        grid-template-columns: 1fr;
+        padding-right: calc(220vw / 12 * 2);
+        padding-left: calc(120vw / 12 * 2);
+    }
+
+    
+    .photo5 {
+min-width: 300px;
+       
+        grid-column: 1;
+
+    }
+    .col2 {
+        grid-column: 1;
+    }
+
+    .photo2 {
+        width: 50%;
+        grid-column: 1;
+
+
+    }
+    .photo1{
+        margin-top: 4rem;
+    }
+    .photo6{
+       max-width: 300px;
+    }
+    .photo3 {
+        max-width: 300px;
+    }
+    .photo7{
+        display: none;
+    } 
+    .photo4 {
+         max-width:400px;
+    }
+    
+    .naming{
+         font-size: 2.5em;
+    }
+    .description{
+       font-size: .6em;
+        justify-self: start;
+        grid-row: 3;
+    }
+} 
+
+/*recipe*/
+.back_to2{
+    padding-left: 24rem;
+padding-top: 3rem;
+}

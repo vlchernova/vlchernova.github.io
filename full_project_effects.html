@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Photo Effects</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/animation_in_loading.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/full_project.css">
+    <link rel="stylesheet" href="css/menu_js.css">
+</head>
+
+<body>
+    <div id="preload">
+        <div class="preload-crop">
+            <div class="preload-item">
+                <img src="img/logo_black_preload.png">
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <!--fixed-->
+        <nav class="menu" id="menu">
+            <div id="sideMenu">
+                <div class="menu_menu">menu</div>
+                <ul class="menu_item">
+                    <li class="about_item"><a href="index.html#about">about</a></li>
+                    <li class="projects_item"><a href="index.html#photography">projects</a></li>
+
+                    <ul class="no">
+                        <div class="line4"></div>
+                        <div class="line"></div>
+
+                        <li class="no1">
+                            <a href="index.html#photography">No. 1<br> PHOTOGRAPHY</a></li>
+                        <div class="line2"></div>
+                        <li class="no2"><a href="index.html#illustration">No.2<br> ILLUSTRATION</a>
+                        </li>
+                        <div class="line3"></div>
+                        <li class="no3"><a href="index.html#layot">No.3<br> LAYOUT</a>
+                        </li>
+                    </ul>
+
+                    <li class="contact_item"><a href="index.html#contact">contact</a></li>
+
+                </ul>
+
+                <div class="links">
+                    <div class="facebook">
+                        <ul>
+                            <li><a href="https://www.facebook.com/valeriya.chernova.186" target="_blank">
+                                    <img src="img/facebook.png">
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div class="instagram">
+                        <ul>
+                            <li><a href="https://www.instagram.com/l.chrnv/?hl=uk" target="_blank">
+                                    <img src="img/instagram.png">
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div class="behance">
+                        <ul>
+                            <li><a href="https://www.behance.net/valeriychernov" target="_blank">
+                                    <img src="img/behance.png">
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="openNav">
+                <div class="logo_close">
+                    <div class="close">
+                        <span id="openNavSpan" style="cursor:pointer;" onclick="openNav()">
+
+                            <img src="img/gamburger.png"></span>
+                        <span id="closeNavSpan" style="cursor:pointer; display: none;" onclick="closeNav()"><img src="img/close.png"></span>
+                    </div>
+
+                    <div class="logo">
+                        <div id="logo"><a href="index.html#about">
+                                <img src="img/logo.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <aside class="aside">
+            <div class="aside_item">
+                <p>projects</p>
+
+            </div>
+        </aside>
+        <!--/fixed-->
+
+        <!--content-->
+        <div class="scroll-container">
+
+            <section id="section_one">
+                <div class="naming">
+                    <p>Photo effects</p>
+                </div>
+                <div class="description">
+                    <p>2020<p>Student project as a part of the photography course at the Department of Graphic Desigh LNAA</p>
+                </div>
+
+
+                <div class="photo1">
+
+                    <img src="img//photo_effects/photo_effects-11.jpg">
+
+
+                </div>
+                <div class="photo5">
+                    <img src="img//photo_effects/photo-effects-12.jpg">
+                </div>
+            </section>
+
+
+            <section id="section_two">
+                <div class="col1">
+
+                    <div class="photo2">
+
+                        <img src="img//photo_effects/photo_effects-13.jpg">
+                    </div>
+
+
+                    <div class="photo4">
+                        <img src="img//photo_effects/photo_effects-14.jpg">
+                    </div>
+
+                </div>
+                <div class="col2">
+                    <div class="photo3">
+                        <img src="img//photo_effects/photo_effects-15.jpg">
+                    </div>
+                   
+
+
+                    <div class="back_to"><a href="index.html">
+                            <img src="img/back_to_prev.png"></a>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+        <!--/content-->
+
+    </div>
+
+
+    <!-- navbar-->
+    <script src="js/menu_js.js"></script>
+
+
+    <!-- RB: element in / out of Viewport detecion -->
+
+    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(event) {
+
+                    /* селектор з <nav class="menu" ... >  */
+                    var menu_navbar = document.querySelector(".menu");
+                    var aside = document.querySelector(".aside");
+
+                    ScrollOut({
+                        scrollingElement: ".scroll-container",
+                        targets: ".scroll-container > section",
+                        threshold: 0.5,
+                        onShown: function(element, ctx, scrollingElement) {
+                            /* Triggered when an element is shown */
+
+                            /* атрибут з <section id="storybook_one" ...>  */
+                            if (element.getAttribute("id") == "section_one") {
+                                menu_navbar.classList.add("invert");
+                                aside.classList.remove("invert");
+                            }
+
+                        },
+                        onHidden: function(element, ctx, scrollingElement) {
+                            /* Triggered when an element is hidden */
+
+                            if (element.getAttribute("id") == "section_one") {
+                                menu_navbar.classList.remove("invert");
+                                aside.classList.add("invert");
+                            }
+
+                        },
+                        onChange: function(element, ctx, scrollingElement) {
+                            /* Triggered when an element changes visibility */
+                        }
+
+                    });
+                });
+    </script>
+
+
+    <!-- navbar-->
+
+
+
+    
+</body></html>
