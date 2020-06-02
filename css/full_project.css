@@ -15,12 +15,15 @@ body {
 
 @font-face {
     font-family: 'Misto';
-    src: url('fonts/Misto.eot');
-    src: url('fonts/Misto.eot') format('embedded-opentype'),
-        url('fonts/Misto.woff2') format('woff2'),
-        url('fonts/Misto.woff') format('woff'),
-        url('fonts/Misto.ttf') format('truetype'),
-        url('fonts/Misto.svg#Misto') format('svg');
+    src: url('../fonts/Misto.eot');
+    src: local('../fonts/Misto'), local('Misto'),
+     url('../fonts/Misto.eot') format('embedded-opentype'),
+        url('../fonts/Misto.woff2') format('woff2'),
+        url('../fonts/Misto.woff') format('woff'),
+        url('../fonts/Misto.ttf') format('truetype'),
+        url('../fonts/Misto.svg#Misto') format('svg');
+    font-weight: normal;
+    font-style:normal;
 }
 
 .page {
